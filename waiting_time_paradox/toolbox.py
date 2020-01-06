@@ -28,3 +28,32 @@ def simulate_waiting_times(arrival_times=arrival_times,
 
 
 
+
+# Move to notebook
+
+plt.style.use('seaborn')
+intervals.plot.hist(bins=np.arrange(80), density=True)
+plt.axvline(interval.mean(), color=black, linestyle='dotted')
+plt.xlabel('Interval between arrivals (minutes)')
+plt.ylabel('Probability density')
+
+
+from scipy.stats import poisson
+
+# Count number of arrivals in 1-hour intervals and plot the result
+binsize = 60
+binned_arrivals = np.bincount((bus_arrival_times // binzise).astype('int'))
+x = np.arange(20)
+
+plt.hist(binned_arrivals, bins=x-0.5, density=True, alpha=0.5, label='Simulation')
+plt.plot(x, poinsson(binsize / tau).pmf(x), 'ok', label='Poisson prediction')
+plt.xlabel('Number of arrivals per hour')
+plt.ylabel('Frequency')
+plt.legend();
+
+
+df = pd.read_csv('../data/arrival_times.csv')
+df = df.dropna(axis=0, how='any')
+df.head()
+
+
