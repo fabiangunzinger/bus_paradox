@@ -13,7 +13,7 @@ def simulate_bus_arrivals(n = 1000000,
 
 def simulate_wait_times(arrival_times,
                            n=1000000,
-                           rseed=231286):
+                             rseed=231286):
     """
     Calculate the waiting time for each arriving passenger.
     """
